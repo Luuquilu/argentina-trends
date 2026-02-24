@@ -6,7 +6,6 @@ import logging, os
 from datetime import datetime, timedelta
 import requests
 from dotenv import load_dotenv
-lood_dotenv = load_dotenv
 load_dotenv()
 logger = logging.getLogger(__name__)
 SEARCH_QUERIES = ["argentina noticias","economia argentina","milei","dolar argentina"]

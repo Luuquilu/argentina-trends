@@ -13,7 +13,7 @@ SUBREDDITS = ["argentina", "merval", "AsesoresDeFe", "ArgEnglish", "buenosaires"
 def collect(limit=150):
     try: import praw
     except ImportError: return []
-    cid = os.getenv("REDDITECLIENT_ID")
+    cid = os.getenv("REDDIT_CLIENT_ID")
     csec = os.getenv("REDDIT_CLIENT_SECRET")
     if not cid or not csec: return []
     reddit = praw.Reddit(client_id=cid, client_secret=csec, user_agent="ArgentinaTrendsBot/1.0")

@@ -24,8 +24,8 @@ def run(hours=6):
         m = meta.get(tid,{})
         label = m.get("label",f"topic_{tid}")
         kw = m.get("keywords",[])
-        pos=sum(1 for p in tposts if p.get("sentiment")=="POS")
-        neg=sum(1 for p in tposts if p.get("sentiment")=="NEG")
+        pos=sum(1 for p in tposts if p.get("sentiment")=="positive")
+        neg=sum(1 for p in tposts if p.get("sentiment")=="negative")
         total=len(tposts)
         trend = {"period_start":(now-timedelta(hours=hours)).isoformat(),"period_end":now.isoformat(),"topic_label":label,"keywords":kw,"post_count":total,"avg_sentiment":round((pos-neg)/total if total else 0,4),"top_posts":[{"title":p.get("title"),"url":p.get("url"),"source":p.get("source")} for p in tposts[:5]],"ai_summary":summarize_trend(label,kw,tposts)}
         trends.append(trend)
