@@ -1,20 +1,21 @@
-feedparser==6.0.11
-pytrends==2.9.1
+# Core
+schedule==1.2.1
+python-dotenv==1.0.0
+supabase==2.3.4
+anthropic==0.21.3
+
+# Collectors
+feedparser==6.0.10
+pytrends==4.9.2
 praw==7.7.1
-anthropic>=0.25
-supabase>=2.0
-schedule==1.2.2
-streamlit>=1.30
-plotly>=5.20
+google-api-python-client==2.118.0
+telethon==1.34.0
 
-# Free local AI models
-bertopic>=0.16
-pysentimiento>=0.7
-sentence-transformers>=2.7
+# Processors
+pysentimiento==0.7.2
+bertopic==0.16.2
 
-# Helpers
-python-dotenv>=1.0
-requests>=2.31
-pandas>=2.0
-numpy<2
-scikit-learn
+# Dashboard
+streamlit==1.31.1
+plotly==5.18.0
+pandas==2.1.4
