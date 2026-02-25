@@ -6,13 +6,26 @@ from datetime import datetime
 import feedparser
 logger = logging.getLogger(__name__)
 FEEDS = {
-    "infobae":["https://www.infobae.com/feeds/rss/","https://www.infobae.com/economia/feeds/rss/"],
-    "lanacion":["https://www.lanacion.com.ar/arcio/rss/"],
-    "clarin":["https://www.clarin.com/rss/lo-ultimo/"],
-    "ambito":["https://www.ambito.com/rss.xml"],
-    "pagina12":["https://www.pagina12.com.ar/rss/portada"],
-    "tn":["https://tn.com.ar/rss/ultimas-noticias.xml"],
-    "cronista":["https://www.cronista.com/files/rss/home.xml"],
+    # High-volume national news
+    "infobae": [
+        "https://www.infobae.com/arc/outboundfeeds/rss/",                                       # main
+        "https://www.infobae.com/arc/outboundfeeds/rss/?outputType=xml&section=economia",       # economy
+        "https://www.infobae.com/arc/outboundfeeds/rss/?outputType=xml&section=politica",       # politics
+        "https://www.infobae.com/arc/outboundfeeds/rss/?outputType=xml&section=sociedad",       # society
+    ],
+    "lanacion":  ["https://www.lanacion.com.ar/arcio/rss/"],
+    "clarin":    ["https://www.clarin.com/rss/lo-ultimo/"],
+    "tn":        ["https://tn.com.ar/rss.xml"],                      # was /ultimas-noticias.xml (404)
+
+    # Economy / finance
+    "ambito":    ["https://www.ambito.com/rss/home.xml"],             # was /rss.xml (404)
+
+    # Opinion / politics (replaces pagina12 & cronista whose RSS are gone)
+    "perfil":    ["https://www.perfil.com/feed"],
+    "chequeado": ["https://chequeado.com/feed/"],                     # fact-checking site
+
+    # Regional (Córdoba — 2nd largest city)
+    "lavoz":     ["https://www.lavoz.com.ar/rss/todas-las-noticias.xml"],
 }
 
 def collect():
