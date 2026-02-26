@@ -1,5 +1,6 @@
 # Credentials — never commit these
 .env
+.streamlit/secrets.toml
 *.key
 *.pem
 
