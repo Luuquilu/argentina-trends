@@ -3,7 +3,7 @@ Telegram collector - optional. Skips if not configured.
 """
 import asyncio, logging, os
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(override=True)  # override: Claude Desktop may set API keys to empty string
 logger = logging.getLogger(__name__)
 CHANNELS = ["infobae","lacapitalmedia","ambito_com","clarin_ok"]
 

@@ -4,7 +4,7 @@ Cost: ~$0.001 per summary.
 """
 import logging, os
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(override=True)  # override=True: Claude Desktop may set ANTHROPIC_API_KEY='' in env
 logger = logging.getLogger(__name__)
 
 def summarize_trend(topic_label, keywords, posts):

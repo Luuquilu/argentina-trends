@@ -6,7 +6,7 @@ import logging
 import os
 from datetime import datetime
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(override=True)  # override: Claude Desktop may set API keys to empty string
 logger = logging.getLogger(__name__)
 SUBREDDITS = ["argentina", "merval", "AsesoresDeFe", "ArgEnglish", "buenosaires"]
 

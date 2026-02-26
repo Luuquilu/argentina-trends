@@ -15,7 +15,7 @@ from datetime import datetime
 import schedule
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)  # override=True needed: Claude Desktop sets ANTHROPIC_API_KEY='' in env
 
 logging.basicConfig(
     level=logging.INFO,
