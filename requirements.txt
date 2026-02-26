@@ -14,6 +14,7 @@ telethon==1.34.0
 
 # Processors
 pysentimiento==0.7.2
+accelerate>=0.26.0
 bertopic==0.16.2
 sentence-transformers==2.7.0
 
