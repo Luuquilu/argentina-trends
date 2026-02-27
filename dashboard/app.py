@@ -138,7 +138,7 @@ with col_l:
     st.subheader("📈 Content volume by source")
     if not posts_df.empty:
         df_v = posts_df.copy()
-        df_v["hour"] = df_v["collected_at"].dt.floor("H")
+        df_v["hour"] = df_v["collected_at"].dt.floor("h")
         vol = df_v.groupby(["hour", "source"]).size().reset_index(name="count")
         fig = px.area(
             vol, x="hour", y="count", color="source",
@@ -149,7 +149,7 @@ with col_l:
             height=280, margin=dict(l=0, r=0, t=8, b=0),
             legend=dict(orientation="h", y=1.08),
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
     else:
         st.info("No posts yet — run `python agent.py --once` to collect data.")
 
@@ -167,7 +167,7 @@ with col_l:
         )
         fig2.update_layout(showlegend=False, height=240,
                            margin=dict(l=0, r=0, t=8, b=0))
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width="stretch")
     else:
         st.info("Sentiment data not available yet.")
 
@@ -192,7 +192,7 @@ with col_r:
             showlegend=False, coloraxis_showscale=False,
             height=280, margin=dict(l=0, r=0, t=8, b=0),
         )
-        st.plotly_chart(fig3, use_container_width=True)
+        st.plotly_chart(fig3, width="stretch")
     else:
         st.info("Google Trends data not yet collected.")
 
@@ -207,7 +207,7 @@ with col_r:
             color_discrete_sequence=px.colors.qualitative.Set2,
         )
         fig4.update_layout(height=240, margin=dict(l=0, r=0, t=8, b=0))
-        st.plotly_chart(fig4, use_container_width=True)
+        st.plotly_chart(fig4, width="stretch")
 
 st.markdown("---")
 
